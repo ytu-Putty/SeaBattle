@@ -24,6 +24,7 @@ fun main()
     printField(playerfield, "Ваше поле", true, false)
     printField(enemyfield, "Вражеское поле", false, true)
     printFields(fields, titles, show)
+    printBothFields(playerfield, enemyfield, true)
 }
 fun createEmptyField(size: Int = 10): Array<CharArray>
 {
@@ -31,6 +32,7 @@ fun createEmptyField(size: Int = 10): Array<CharArray>
 }
 fun printField(field:Array<CharArray>, title: String, showShips: Boolean = true, debug: Boolean = false)
 {
+    println()
     if(debug)
     {
         val size = field.size
@@ -91,6 +93,7 @@ fun printBothFields(player: Array<CharArray>, enemy: Array<CharArray>, showEnemy
         return
     }
     val size = player.size
+    println()
     println("=== Ваше поле ===        === Поле противника ===")
     print("  ")
     for (c in 0..size - 1) print("$c ")
@@ -117,6 +120,7 @@ fun printBothFields(player: Array<CharArray>, enemy: Array<CharArray>, showEnemy
 }
 fun printFields(fields: Array<Array<CharArray>>, titles: Array<String>, showShips: BooleanArray)
 {
+    println()
     if (fields.size != titles.size || fields.size != showShips.size) {
         println("Ошибка: количество полей (${fields.size}), заголовков (${titles.size}) и флагов (${showShips.size}) не совпадает.")
         return
@@ -150,8 +154,6 @@ fun printFields(fields: Array<Array<CharArray>>, titles: Array<String>, showShip
         }
         print("   ")
     }
-
-    println()
 
     println()
 

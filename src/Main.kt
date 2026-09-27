@@ -36,7 +36,7 @@ fun printField(field:Array<CharArray>, title: String, showShips: Boolean = true,
         val size = field.size
         println("=== $title (debug)===")
         print("    |")
-        for (c in 0..field.size-1) {
+        for (c in 0..field.size - 1) {
             if( c > 9)
             {
                 print("$c |")
@@ -45,7 +45,7 @@ fun printField(field:Array<CharArray>, title: String, showShips: Boolean = true,
         }
         println()
 
-        for (r in 0..field.size-1) {
+        for (r in 0..field.size - 1) {
             print("    ")
             println("+---".repeat(size) + "+")
             if( r > 9)
@@ -54,7 +54,7 @@ fun printField(field:Array<CharArray>, title: String, showShips: Boolean = true,
             }
             else print(" $r  |")
 
-            for (c in 0..field.size-1) {
+            for (c in 0..field.size - 1) {
                 val value = field[r][c]
                 val displayChar = if (value == '#' && !showShips) '.' else value
                 print(" $displayChar |")
@@ -68,13 +68,13 @@ fun printField(field:Array<CharArray>, title: String, showShips: Boolean = true,
     {
         println("=== $title===")
         print("   ")
-        for (c in 0..field.size-1) {
+        for (c in 0..field.size - 1) {
             print("$c ")
         }
         println()
-        for (r in 0..field.size-1) {
+        for (r in 0..field.size - 1) {
             print(" $r ")
-            for (c in 0..field.size-1) {
+            for (c in 0..field.size - 1) {
                 val value = field[r][c]
                 val displayChar = if (value == '#' && !showShips) '.' else value
                 print("$displayChar ")
@@ -93,19 +93,19 @@ fun printBothFields(player: Array<CharArray>, enemy: Array<CharArray>, showEnemy
     val size = player.size
     println("=== Ваше поле ===        === Поле противника ===")
     print("  ")
-    for (c in 0..size-1) print("$c ")
+    for (c in 0..size - 1) print("$c ")
     print("     ")
     print("   ")
-    for(c in 0..size-1) print("$c ")
+    for(c in 0..size - 1) print("$c ")
     println()
 
-    for (r in 0..size-1) {
+    for (r in 0..size - 1) {
         print("$r ")
-        for (c in 0..size-1) print("${player[r][c]} ")
+        for (c in 0..size - 1) print("${player[r][c]} ")
         print("      ")
         print("$r ")
 
-        for (c in 0..size-1)
+        for (c in 0..size - 1)
         {
             val value = enemy[r][c]
             val displayChar = if (value == '#' && !showEnemyShips) '.' else value
@@ -143,23 +143,24 @@ fun printFields(fields: Array<Array<CharArray>>, titles: Array<String>, showShip
 
     println()
 
-    for (i in fields.indices) {
+    repeat(fields.size) {
         print("   ")
-        for (c in 0 .. size-1) {
+        for (c in 0 .. size - 1) {
             print("$c ")
         }
         print("   ")
     }
-    println()
 
     println()
 
-    for (r in 0 .. size-1)
+    println()
+
+    for (r in 0 .. size - 1)
     {
-        for (i in 0..fields.size-1)
+        for (i in 0..fields.size - 1)
         {
             print (" $r ")
-            for (c in 0 .. size-1) {
+            for (c in 0 .. size - 1) {
                 val value = fields[i][r][c]
                 val displayChar = if (value == '#' && !showShips[i]) '.' else value
                 print("$displayChar ")
